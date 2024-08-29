@@ -33,7 +33,7 @@ app.use("/api/v1/job", jobRouter)
 app.use("/api/v1/application", applicationRouter)
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT,()=>{
     console.log(`Server is Running at ${PORT}`)

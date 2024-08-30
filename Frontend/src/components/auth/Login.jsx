@@ -54,13 +54,13 @@ const Login = () => {
     }
   }, []);
   return (
-    <div className="bg-richblack-900 min-h-screen">
+    <div className="bg-richblack-800 min-h-screen">
       <Navbar />
       <div className="flex items-center justify-center w-full px-4 sm:px-6 lg:px-8">
         <form
           onSubmit={submitHandler}
           autoComplete="off"
-          className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 border border-richblack-800 shadow-2xl rounded-md p-4 sm:p-6 lg:p-8 my-10"
+          className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 border border-richblack-700 shadow-2xl rounded-md p-4 sm:p-6 lg:p-8 my-10"
         >
           <h1 className="font-bold text-xl mb-5 text-richblack-5">Login</h1>
           <div className="my-2">

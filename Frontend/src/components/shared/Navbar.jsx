@@ -31,7 +31,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div>
+    <div >
       <div className="flex flex-col justify-between md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-600 text-[40px]">
@@ -86,12 +86,12 @@ const Navbar = () => {
             {!user ? (
               <div className="flex flex-row md:flex-row gap-4 items-center">
                 <Link to="/login">
-                  <Button className="bg-richblack-900 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700 hover:bg-richblack-700 text-[16px] ">
+                  <Button className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700 hover:bg-richblack-700 text-[16px] ">
                     Login
                   </Button>
                 </Link>
                 <Link to="/signup">
-                  <Button className="bg-richblack-900 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700 hover:bg-richblack-700 text-[16px] ">
+                  <Button className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700 hover:bg-richblack-700 text-[16px] ">
                     Signup
                   </Button>
                 </Link>

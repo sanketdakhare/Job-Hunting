@@ -155,7 +155,7 @@ const Signup = () => {
               value={input.phoneNumber}
               name="phoneNumber"
               onChange={changeEventHandler}
-              placeholder="9657000000"
+              placeholder="**********"
               className="bg-richblack-800 rounded-md text-richblack-5 w-full py-6 border-none mt-2"
             />
           </div>

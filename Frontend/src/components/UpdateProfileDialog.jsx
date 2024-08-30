@@ -28,7 +28,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     skills: user?.profile?.skills?.map((skill) => skill) || "",
     file: user?.profile?.resume || "",
   });
-  console.log("Resume URL: ", user?.profile?.resume);
+  //console.log("Resume URL: ", user?.profile?.resume);
   const dispatch = useDispatch();
 
   const changeEventHandler = (e) => {

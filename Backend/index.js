@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions={
+    //origin:"0http://localhost:5173",
     origin:'https://job-hunting-seven.vercel.app',
     credentials : true
 }

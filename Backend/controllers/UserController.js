@@ -114,9 +114,14 @@ export const login = async (req, res) => {
           userId: user._id,
           token: crypto.randomBytes(32).toString("hex"),
         }).save();
-        const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-        await sendEmail(user.email, "Verify Email to log in Jobportal Website", url);
       }
+
+      const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+      await sendEmail(
+        user.email,
+        "Verify Email to log in Jobportal Website",
+        url
+      );
 
       return res.status(400).json({
         //message change
@@ -128,7 +133,7 @@ export const login = async (req, res) => {
     const tokenData = {
       userId: user._id,
     };
-    const token =  jwt.sign(tokenData, process.env.SECRET_KEY, {
+    const token = jwt.sign(tokenData, process.env.SECRET_KEY, {
       expiresIn: "1d",
     });
 
@@ -146,8 +151,8 @@ export const login = async (req, res) => {
       .cookie("token", token, {
         maxAge: 1 * 24 * 60 * 60 * 1000,
         httpsOnly: true,
-        secure:true,
-        sameSite: "None"
+        secure: true,
+        sameSite: "None",
       })
       .json({
         message: `Welcome ${user.fullname}`,
@@ -232,11 +237,9 @@ export const updateProfile = async (req, res) => {
 
 // for mail
 
-
 function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
 
 export const verify = async (req, res) => {
   try {
@@ -264,8 +267,7 @@ export const verify = async (req, res) => {
       { $set: { verified: true } } // Update: what to change
     );
 
-
-    await delay(15000)
+    await delay(15000);
     await Token.findOneAndDelete({ userId: user._id, token: req.params.token });
     return res.status(200).json({
       success: true,

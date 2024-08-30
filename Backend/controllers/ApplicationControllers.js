@@ -12,6 +12,14 @@ export const applyJob = async (req, res) => {
                 success: false
             })
         };
+        
+        if (!userId) {
+            return res.status(400).json({
+                message: "LogIn to Apply For this Job",
+                success: false
+            });
+        }
+
         // check if the user has already applied for the job
         const existingApplication = await Application.findOne({ job: jobId, applicant: userId });
 

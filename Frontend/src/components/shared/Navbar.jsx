@@ -32,16 +32,16 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="flex flex-row justify-between md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
+      <div className="flex flex-col justify-between md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-600 text-[40px]">
             Job<span className="text-richblack-5 text-[40px]">Portal</span>
           </h1>
         </div>
-        <div className="flex flex-row md:flex-row gap-4 md:gap-6 items-center justify-center md:justify-end">
-          <ul className="text-richblack-100 flex flex-row md:flex-row gap-x-0 md:gap-x-6 mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-6 items-center justify-center md:justify-end">
+          <ul className="text-richblack-100 flex flex-row gap-2 md:flex-row gap-x-0 md:gap-x-6 mb-4 md:mb-0">
             {user && user.role === "recruiter" ? (
-              <>
+              <div className="flex gap-5 ">
                 <li>
                   <Link to="/admin/companies" className="hover:text-gray-500 text-[16px]">
                     Companies
@@ -52,9 +52,9 @@ const Navbar = () => {
                     Jobs
                   </Link>
                 </li>
-              </>
+              </div>
             ) : (
-              <>
+              <div  className="flex gap-4">
                 <li>
                   <Link to="/" className="hover:text-gray-500 text-[16px] ">
                     Home
@@ -70,7 +70,7 @@ const Navbar = () => {
                     Browse
                   </Link>
                 </li>
-              </>
+              </div>
             )}
           </ul>
           {!user ? (

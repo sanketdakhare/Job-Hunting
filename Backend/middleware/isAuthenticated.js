@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { User } from "../models/userModel";
 
 const isAuthenticated = async (req, res, next) => {
   try {
@@ -24,7 +25,7 @@ const isAuthenticated = async (req, res, next) => {
         success: false,
       });
     }
-    
+
     req.id = decode.userId;
     next();
   } catch (error) {

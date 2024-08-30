@@ -15,7 +15,7 @@ const HeroSection = () => {
     navigate("/browse");
   };
 
-  const colorHandler = () => {};
+  
 
   return (
     <div className="text-center px-4 md:px-8 lg:px-16">

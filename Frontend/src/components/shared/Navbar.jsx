@@ -32,7 +32,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
+      <div className="flex flex-row md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-600 text-[40px]">
             Job<span className="text-richblack-5 text-[40px]">Portal</span>

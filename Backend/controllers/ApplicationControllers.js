@@ -96,7 +96,6 @@ export const getApplicants = async (req,res) => {
         console.log(error);
     }
 }
-
 export const updateStatus = async (req,res) => {
     try {
         const {status} = req.body;

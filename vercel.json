@@ -5,12 +5,7 @@
         "destination": "/api/verify"
       }
     ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ],
+   
     
     "cleanUrls": true
 

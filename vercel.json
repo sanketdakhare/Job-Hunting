@@ -1,18 +1,8 @@
 {
-    "version": 2,
-    "builds": [
+  "rewrites": [
       {
-        "src": "frontend/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "frontend/dist"
-        }
+          "source": "/(.*)",
+          "destination": "/index.html"
       }
-    ],
-    "rewrites": [
-      {
-        "source": "/users/:userId/verify/:token",
-        "destination": "/api/verify"
-      }
-    ]
-  }
+  ]
+}

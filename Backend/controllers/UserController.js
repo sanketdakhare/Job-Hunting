@@ -114,7 +114,7 @@ export const login = async (req, res) => {
       }
 
       const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-      const text = "click on link to verify ";
+      const text = "link to verify ";
       await sendEmail(user.email, "Verify Email ", text, url);
 
       return res.status(400).json({

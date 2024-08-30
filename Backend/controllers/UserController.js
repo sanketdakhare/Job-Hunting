@@ -57,11 +57,8 @@ export const register = async (req, res) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-    await sendEmail(
-      user.email,
-      "Verify Email to log in Jobportal Website",
-      url
-    );
+    const text = "click on link to verify ";
+    await sendEmail(user.email, "Verify Email ", text, url);
 
     return res.status(201).json({
       //message change
@@ -117,11 +114,8 @@ export const login = async (req, res) => {
       }
 
       const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
-      await sendEmail(
-        user.email,
-        "Verify Email to log in Jobportal Website",
-        url
-      );
+      const text = "click on link to verify ";
+      await sendEmail(user.email, "Verify Email ", text, url);
 
       return res.status(400).json({
         //message change

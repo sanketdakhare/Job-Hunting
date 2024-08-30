@@ -1,12 +1,32 @@
 {
-    "rewrites": [
-      {
-        "source": "/users/:userId/verify/:token",
-        "destination": "/api/verify"
+  "rewrites": [
+    {
+      "source": "/users/:userId/verify/:token",
+      "destination": "/api/verify-email"
+    }
+  ],
+  "builds": [
+    {
+      "src": "backend/api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/vite.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/dist"
       }
-    ],
-   
-    
-    "cleanUrls": true
-
-  }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ],
+  "cleanUrls": true
+}

@@ -11,6 +11,6 @@ router.get("/get",getAllJobs)
 
 
 router.get("/getadminjobs",isAuthenticated,getAdminJobs)
-router.get("/get/:id",isAuthenticated,getJobById)
+router.get("/get/:id",getJobById)
 
 export default router;

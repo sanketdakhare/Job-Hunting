@@ -9,6 +9,12 @@
         }
       }
     ],
+    "rewrites": [
+      {
+        "source": "/users/:userId/verify/:token",
+        "destination": "/api/verify"
+      }
+    ],
     "routes": [
       {
         "src": "/(.*)",

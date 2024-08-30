@@ -115,7 +115,7 @@ const Signup = () => {
     }
   }, []);
   return (
-    <div className="bg-richblack-800 min-h-screen flex flex-col">
+    <div className="bg-richblack-900 min-h-screen flex flex-col">
       <Navbar />
       <div className="flex items-center justify-center w-full px-4 sm:px-6 lg:px-8">
         <form

@@ -54,7 +54,7 @@ const Login = () => {
     }
   }, []);
   return (
-    <div className="bg-richblack-800 min-h-screen">
+    <div className="bg-richblack-900 min-h-screen">
       <Navbar />
       <div className="flex items-center justify-center w-full px-4 sm:px-6 lg:px-8">
         <form

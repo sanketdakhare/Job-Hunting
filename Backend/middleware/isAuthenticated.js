@@ -17,15 +17,7 @@ const isAuthenticated = async (req, res, next) => {
         success: false,
       });
     }
-
-    const user = await User.findById(req.id);
-    if (!user) {
-      return res.status(401).json({
-        message: "User not found, please log in again.",
-        success: false,
-      });
-    }
-
+    
     req.id = decode.userId;
     next();
   } catch (error) {

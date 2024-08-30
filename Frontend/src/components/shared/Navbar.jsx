@@ -32,13 +32,13 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="flex flex-row md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
+      <div className="flex flex-row justify-between md:flex-row md:justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-600 text-[40px]">
             Job<span className="text-richblack-5 text-[40px]">Portal</span>
           </h1>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-center md:justify-end">
+        <div className="flex flex-row md:flex-row gap-4 md:gap-6 items-center justify-center md:justify-end">
           <ul className="text-richblack-100 flex flex-col md:flex-row gap-x-0 md:gap-x-6 mb-4 md:mb-0">
             {user && user.role === "recruiter" ? (
               <>
@@ -74,7 +74,7 @@ const Navbar = () => {
             )}
           </ul>
           {!user ? (
-            <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="flex flex-row md:flex-row gap-4 items-center">
               <Link to="/login">
                 <Button className="bg-richblack-900 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700 hover:bg-richblack-700 text-[16px] ">
                   Login

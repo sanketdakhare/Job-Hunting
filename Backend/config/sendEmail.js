@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 
-const sendEmail = async (email, subject, text, url) => {
+const sendEmail = async (email, subject, url) => {
     try {
         const transporter = nodemailer.createTransport({
             host: process.env.HOST,
@@ -18,7 +18,9 @@ const sendEmail = async (email, subject, text, url) => {
             from: process.env.USER,
             to: email,
             subject: subject,
-            html :`<h4>${text}</h4> <a href="${url}">Click here</a>` 
+            html :`<h4>Thank you for registering with us!</h4>
+                 <p><span><a href="${url}">Click here </a></span>to verify your email address</p>
+                 <p>If you did not request this verification, please ignore this email.</p> ` 
         });
         
         

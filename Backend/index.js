@@ -10,7 +10,7 @@ import userRouter from "./routes/userRouter.js"
 import companyRouter from "./routes/companyRouter.js"
 import jobRouter from "./routes/jobRouter.js"
 import applicationRouter from "./routes/applicationRouter.js"
-
+import path from "path"
 
 
 dotenv.config();
@@ -33,6 +33,15 @@ app.use("/api/v1/company",companyRouter);
 app.use("/api/v1/job", jobRouter)
 app.use("/api/v1/application", applicationRouter)
 
+
+// Serve static files from the frontend
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "Frontend")));
+
+// Handle all other routes and redirect to the frontend's index.html
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Frontend", "index.html"));
+});
 
 const PORT = process.env.PORT || 4000;
 

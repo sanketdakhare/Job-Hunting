@@ -36,8 +36,8 @@ const Jobs = () => {
   return (
     <div className="bg-richblack-900 min-h-screen overflow-auto">
       <Navbar />
-      <div className="max-w-7xl mx-auto mt-5 px-4">
-        <div className="flex flex-col md:flex-row gap-5 w-full">
+      <div className="max-w-7xl w-full mx-auto mt-5 px-4">
+        <div className="flex  flex-col md:flex-row gap-5 w-full">
           <div className="w-full md:w-1/4 lg:w-1/5">
             <FilterCard />
           </div>
@@ -47,7 +47,7 @@ const Jobs = () => {
                 Job not found
               </span>
             ) : (
-              <div className="grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {filterJobs.map((job) => (
                   <Job key={job._id} job={job} />
                 ))}

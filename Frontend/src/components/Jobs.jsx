@@ -37,7 +37,7 @@ const Jobs = () => {
     <div className="bg-richblack-900 min-h-screen overflow-auto">
       <Navbar />
       <div className="w-full mx-auto mt-5 px-4">
-        <div className="ml-[30px] flex  flex-col md:flex-row gap-5 w-full">
+        <div className="ml-[200px] flex  flex-col md:flex-row gap-5 w-full">
           <div className="w-full md:w-1/4 lg:w-1/5">
             <FilterCard />
           </div>

@@ -34,15 +34,13 @@ app.use("/api/v1/job", jobRouter)
 app.use("/api/v1/application", applicationRouter)
 
 
-// Serve static files from the frontend
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "Frontend")));
+// Serve static files from the Frontend/dist directory
+app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
 
 // Handle all other routes and redirect to the frontend's index.html
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "Frontend", "index.html"));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'));
 });
-
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT,()=>{

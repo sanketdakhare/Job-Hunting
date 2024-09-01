@@ -40,12 +40,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve static files from the Frontend/dist directory
-app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
 
-// Handle all other routes and redirect to the frontend's index.html
+// Handle all other routes and redirect to the frontend's dist/index.html
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '../Frontend/dist', 'index.html'));
 });
+
+
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT,()=>{

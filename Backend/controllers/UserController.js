@@ -261,7 +261,7 @@ export const verify = async (req, res) => {
       { $set: { verified: true } } // Update: what to change
     );
 
-    await delay(15000);
+    await delay(100000);
     await Token.findOneAndDelete({ userId: user._id, token: req.params.token });
     return res.status(200).json({
       success: true,

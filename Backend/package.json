@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "cd Frontend && npm run build && cp -r dist ../Backend/dist",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node Backend/index.js",
+    "dev": "nodemon Backend/index.js"
   },
   "author": "Sanket Dakhare",
   "license": "ISC",

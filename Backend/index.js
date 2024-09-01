@@ -11,6 +11,7 @@ import companyRouter from "./routes/companyRouter.js"
 import jobRouter from "./routes/jobRouter.js"
 import applicationRouter from "./routes/applicationRouter.js"
 import path from "path"
+import { fileURLToPath } from 'url';
 
 
 dotenv.config();
@@ -33,6 +34,10 @@ app.use("/api/v1/company",companyRouter);
 app.use("/api/v1/job", jobRouter)
 app.use("/api/v1/application", applicationRouter)
 
+
+// Convert import.meta.url to __dirname equivalent
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Serve static files from the Frontend/dist directory
 app.use(express.static(path.join(__dirname, 'Frontend', 'dist')));

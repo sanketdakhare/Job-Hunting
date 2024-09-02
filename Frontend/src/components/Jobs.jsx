@@ -42,7 +42,7 @@ const Jobs = () => {
             <FilterCard />
           </div>
           <div className="flex-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 h-[88vh] overflow-y-auto pb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 overflow-y-auto pb-5">
               {filterJobs.length <= 0 ? (
                 <span className="text-white font-bold flex justify-center items-center h-full text-[25px]">
                   Job not found

@@ -36,8 +36,8 @@ const Jobs = () => {
   return (
     <div className="bg-richblack-900 min-h-screen overflow-auto">
       <Navbar />
-      <div className="max-w-7xl mx-auto mt-5 px-4">
-        <div className="flex  flex-col md:flex-row gap-5 w-full">
+      <div className="w-full mx-auto mt-5 px-4">
+        <div className="max-w-7xl flex  flex-col md:flex-row gap-5 ">
           <div className="w-full md:w-1/4 lg:w-1/5">
             <FilterCard />
           </div>

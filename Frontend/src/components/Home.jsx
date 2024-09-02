@@ -23,9 +23,12 @@ const Home = () => {
   useEffect(() => {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
+    } else {
+      // Clear the search query and fetch all jobs
+      localStorage.removeItem("searchQuery");
+      useGetAllJobs();
     }
-    localStorage.removeItem("searchQuery");
-  }, [location]);
+  }, [user,navigate]);
 
   return (
     <div className="bg-richblack-900">

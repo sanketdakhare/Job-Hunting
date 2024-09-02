@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  
   useGetAllJobs();
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ const Home = () => {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-  }, []);
+    localStorage.removeItem("searchQuery");
+  }, [user, navigate]);
+
   return (
     <div className="bg-richblack-900">
       <Navbar />

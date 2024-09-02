@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = () => {
 
-  //useGetAllJobs();
+  useGetAllJobs();
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,8 +24,7 @@ const Home = () => {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-    useGetAllJobs();
-  }, [location]);
+  }, []);
 
   return (
     <div className="bg-richblack-900">

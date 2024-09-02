@@ -15,16 +15,17 @@ const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    // Call useGetAllJobs every time the component is mounted or the location changes
-    useGetAllJobs();
-  }, [navigate]);
+  // useEffect(() => {
+  //   // Call useGetAllJobs every time the component is mounted or the location changes
+  //   useGetAllJobs();
+  // }, [navigate]);
 
   useEffect(() => {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-  }, []);
+    localStorage.removeItem("searchQuery");
+  }, [location]);
 
   return (
     <div className="bg-richblack-900">

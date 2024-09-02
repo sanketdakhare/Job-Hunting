@@ -55,6 +55,8 @@ const FilterCard = () => {
 
       dispatch(setminsalary(minSalary));
       dispatch(setmaxsalary(maxSalary));
+    }else{
+      dispatch(setSearchedQuery(selectedValue));
     }
   }, [selectedValue]);
 

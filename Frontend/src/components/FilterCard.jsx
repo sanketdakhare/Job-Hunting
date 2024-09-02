@@ -23,9 +23,25 @@ const FilterCard = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const dispatch = useDispatch();
 
+  // Load the saved filter value when the component mounts
+  useEffect(() => {
+    const savedValue = localStorage.getItem("selectedFilter");
+    if (savedValue) {
+      setSelectedValue(savedValue);
+    }
+  }, []);
+
   const changeHandler = (value) => {
-    setSelectedValue(value);
+    // If the same item is clicked twice, clear the selection
+    if (selectedValue === value) {
+      setSelectedValue("");
+      localStorage.removeItem("selectedFilter");
+    } else {
+      setSelectedValue(value);
+      localStorage.setItem("selectedFilter", value);
+    }
   };
+
 
   useEffect(() => {
     dispatch(setSearchedQuery(selectedValue));
@@ -37,10 +53,8 @@ const FilterCard = () => {
       const minSalary = parseFloat(minSalaryStr.trim());
       const maxSalary = parseFloat(maxSalaryStr.trim());
 
-      dispatch(setminsalary(minSalary))
-      dispatch(setmaxsalary(maxSalary))
-
-        
+      dispatch(setminsalary(minSalary));
+      dispatch(setmaxsalary(maxSalary));
     }
   }, [selectedValue]);
 
@@ -73,6 +87,7 @@ const FilterCard = () => {
                     className="bg-gray-700"
                     value={item}
                     id={itemId}
+                    onClick={() => changeHandler(item)} // Handle double-click to remove the filter
                   />
                   <Label
                     htmlFor={itemId}

@@ -44,7 +44,7 @@ const FilterCard = () => {
 
 
   useEffect(() => {
-    dispatch(setSearchedQuery(selectedValue));
+    //dispatch(setSearchedQuery(selectedValue));
     if (selectedValue.includes("LPA")) {
       const [minSalaryStr, maxSalaryStr] = selectedValue
         .replace("LPA", "")

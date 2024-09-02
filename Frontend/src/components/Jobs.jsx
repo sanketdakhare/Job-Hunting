@@ -24,7 +24,7 @@ const Jobs = () => {
     }else{
       setFilterJobs(allJobs);
     }
-  },[maxsalary,minsalary])
+  },[allJobs,maxsalary,minsalary])
 
 
   useEffect(() => {

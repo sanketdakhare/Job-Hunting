@@ -42,9 +42,9 @@ const FilterCard = () => {
     }
   };
   // For Handling the Location and JobTitle
-  useEffect (()=>{
-    dispatch(setSearchedQuery(selectedValue));
-  },[selectedValue])
+  // useEffect (()=>{
+  //   dispatch(setSearchedQuery(selectedValue));
+  // },[selectedValue])
 
 
   useEffect(() => {
@@ -59,6 +59,8 @@ const FilterCard = () => {
 
       dispatch(setminsalary(minSalary));
       dispatch(setmaxsalary(maxSalary));
+    }else{
+      dispatch(setSearchedQuery(selectedValue));
     }
   }, [selectedValue]);
 

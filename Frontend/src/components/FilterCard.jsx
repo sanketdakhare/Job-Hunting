@@ -23,46 +23,53 @@ const FilterCard = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const dispatch = useDispatch();
 
-  // Load the saved filter value when the component mounts
+  // Load the saved filter value and salary range when the component mounts
   useEffect(() => {
     const savedValue = localStorage.getItem("selectedFilter");
+    const savedMinSalary = localStorage.getItem("minSalary");
+    const savedMaxSalary = localStorage.getItem("maxSalary");
+
     if (savedValue) {
       setSelectedValue(savedValue);
+      if (savedMinSalary && savedMaxSalary) {
+        dispatch(setminsalary(parseFloat(savedMinSalary)));
+        dispatch(setmaxsalary(parseFloat(savedMaxSalary)));
+      } else {
+        dispatch(setSearchedQuery(savedValue));
+      }
     }
-  }, []);
+  }, [dispatch]);
 
   const changeHandler = (value) => {
-    // If the same item is clicked twice, clear the selection
     if (selectedValue === value) {
       setSelectedValue("");
       localStorage.removeItem("selectedFilter");
+      localStorage.removeItem("minSalary");
+      localStorage.removeItem("maxSalary");
     } else {
       setSelectedValue(value);
       localStorage.setItem("selectedFilter", value);
+
+      if (value.includes("LPA")) {
+        const [minSalaryStr, maxSalaryStr] = value
+          .replace("LPA", "")
+          .split(" - ");
+
+        const minSalary = parseFloat(minSalaryStr.trim());
+        const maxSalary = parseFloat(maxSalaryStr.trim());
+
+        localStorage.setItem("minSalary", minSalary);
+        localStorage.setItem("maxSalary", maxSalary);
+
+        dispatch(setminsalary(minSalary));
+        dispatch(setmaxsalary(maxSalary));
+      } else {
+        dispatch(setSearchedQuery(value));
+        localStorage.removeItem("minSalary");
+        localStorage.removeItem("maxSalary");
+      }
     }
   };
-  // For Handling the Location and JobTitle
-  // useEffect (()=>{
-  //   dispatch(setSearchedQuery(selectedValue));
-  // },[selectedValue])
-
-
-  useEffect(() => {
-    //dispatch(setSearchedQuery(selectedValue));
-    if (selectedValue.includes("LPA")) {
-      const [minSalaryStr, maxSalaryStr] = selectedValue
-        .replace("LPA", "")
-        .split(" - ");
-
-      const minSalary = parseFloat(minSalaryStr.trim());
-      const maxSalary = parseFloat(maxSalaryStr.trim());
-
-      dispatch(setminsalary(minSalary));
-      dispatch(setmaxsalary(maxSalary));
-    }else{
-      dispatch(setSearchedQuery(selectedValue));
-    }
-  }, [selectedValue]);
 
   return (
     <div className="w-full bg-[#1b1c1d11] p-4 rounded-md border border-richblack-700 overflow-auto">

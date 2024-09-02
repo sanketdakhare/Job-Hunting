@@ -7,7 +7,8 @@ export const applyJob = async (req, res) => {
     const userId = req.id;
     const jobId = req.params.id;
 
-    let user = await User.findOne({ userId });
+    let user = await User.findById(userId);
+
     if (!user) {
       return res.status(400).json({
         message: "Please LogIn to Apply For this Job.",
@@ -21,8 +22,6 @@ export const applyJob = async (req, res) => {
         success: false,
       });
     }
-
-    
 
     // check if the user has already applied for the job
     const existingApplication = await Application.findOne({

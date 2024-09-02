@@ -6,19 +6,25 @@ import LatestJobs from "./LatestJobs";
 import Footer from "./shared/Footer";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = () => {
-  
+
   useGetAllJobs();
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Call useGetAllJobs every time the component is mounted or the location changes
+    useGetAllJobs();
+  }, [location]);
+
   useEffect(() => {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-    localStorage.removeItem("searchQuery");
-  }, [user, navigate]);
+  }, []);
 
   return (
     <div className="bg-richblack-900">

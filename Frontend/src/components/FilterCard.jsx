@@ -41,6 +41,10 @@ const FilterCard = () => {
       localStorage.setItem("selectedFilter", value);
     }
   };
+  // For Handling the Location and JobTitle
+  useEffect (()=>{
+    dispatch(setSearchedQuery(selectedValue));
+  },[selectedValue])
 
 
   useEffect(() => {
@@ -55,8 +59,6 @@ const FilterCard = () => {
 
       dispatch(setminsalary(minSalary));
       dispatch(setmaxsalary(maxSalary));
-    }else{
-      dispatch(setSearchedQuery(selectedValue));
     }
   }, [selectedValue]);
 

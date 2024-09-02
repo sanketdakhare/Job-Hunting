@@ -56,7 +56,8 @@ export const register = async (req, res) => {
       userId: user._id,
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
-    const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+    //const url = `${process.env.BASE_URL}users/${user.id}/verify/${token.token}`;
+    const url = `${process.env.BASE_URL.trim()}users/${user.id.trim()}/verify/${token.token.trim()}`;
    
     await sendEmail(user.email, "Verification mail form Job Hunting to verify your email Address", url);
 

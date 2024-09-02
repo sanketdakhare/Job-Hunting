@@ -19,7 +19,7 @@ const sendEmail = async (email, subject, url) => {
             to: email,
             subject: subject,
             html :`<h4>Thank you for registering with us!</h4>
-                 <p><span><a href="${url}">Click here </a></span>to verify your email address</p>
+                 <p><span><a href="${url}">${url}</a> </a></span>to verify your email address</p>
                  <p>If you did not request this verification mail, please ignore this mail.</p> ` 
         });
         

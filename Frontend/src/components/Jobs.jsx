@@ -15,26 +15,22 @@ const Jobs = () => {
 
 
   useEffect(() => {
-    if (searchedQuery || minsalary || maxsalary) {
+    if (searchedQuery) {
       const filteredJobs = allJobs.filter((job) => {
-        const matchesTitle = job.title.toLowerCase().includes(searchedQuery.toLowerCase());
-        const matchesDescription = job.description.toLowerCase().includes(searchedQuery.toLowerCase());
-        const matchesLocation = job.location.toLowerCase().includes(searchedQuery.toLowerCase());
-        const matchesSalary = job.salary >= minsalary && job.salary <= maxsalary;
-  
-        // Only include jobs that match both the query and salary range
         return (
-          (matchesTitle || matchesDescription || matchesLocation) &&
-          (!minsalary || !maxsalary || matchesSalary)
+          job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+          job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+          job.location.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+          job.salary >= minsalary && job.salary<= maxsalary
         );
       });
       setFilterJobs(filteredJobs);
     } else {
       setFilterJobs(allJobs);
     }
-  }, [allJobs, searchedQuery, minsalary, maxsalary]);
 
-  
+  }, [allJobs, searchedQuery,maxsalary,minsalary]);
+
   return (
     <div className="bg-richblack-900 min-h-screen overflow-hidden">
       <Navbar />

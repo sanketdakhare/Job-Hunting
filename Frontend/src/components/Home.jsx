@@ -5,10 +5,13 @@ import CategoryCarousel from "./CategoryCarousel";
 import LatestJobs from "./LatestJobs";
 import Footer from "./shared/Footer";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { setSearchedQuery } from "@/redux/jobSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  dispatch(setSearchedQuery(""));
 
   useGetAllJobs();
   const { user } = useSelector((store) => store.auth);
